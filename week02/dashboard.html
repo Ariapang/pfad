@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chek Lap Kok Tide Data Dashboard 2023</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        }
+        .header h1 {
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        .header p {
+            color: #7f8c8d;
+            font-size: 1.2em;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .stat-card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        }
+        .stat-value {
+            font-size: 2em;
+            font-weight: bold;
+            color: #3498db;
+        }
+        .stat-label {
+            color: #7f8c8d;
+            margin-top: 5px;
+        }
+        .visualization-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .viz-card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .viz-card:hover {
+            transform: translateY(-5px);
+        }
+        .viz-card h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+        .viz-card p {
+            color: #7f8c8d;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        .viz-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        .viz-link:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .insights {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        }
+        .insights h3 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 1.6em;
+        }
+        .insights ul {
+            list-style: none;
+        }
+        .insights li {
+            color: #555;
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+            line-height: 1.6;
+        }
+        .insights li:before {
+            content: "🌊";
+            position: absolute;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌊 Chek Lap Kok Tide Data Dashboard</h1>
+            <p>Interactive Analysis of Tidal Patterns at Hong Kong International Airport - 2023</p>
+        </div>
+        
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value">1,301</div>
+                <div class="stat-label">Total Measurements</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">2.89m</div>
+                <div class="stat-label">Highest Tide</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">0.00m</div>
+                <div class="stat-label">Lowest Tide</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">1.44m</div>
+                <div class="stat-label">Average Tide</div>
+            </div>
+        </div>
+        
+        <div class="visualization-grid">
+            <div class="viz-card">
+                <h3>📈 Interactive Time Series</h3>
+                <p>Explore the complete year of tide data with zoom, pan, and range selection tools. Navigate through different time periods easily.</p>
+                <a href="tide_interactive.html" class="viz-link" target="_blank">Open Visualization</a>
+            </div>
+            
+            <div class="viz-card">
+                <h3>📊 Monthly Distributions</h3>
+                <p>Compare tide height variability across different months with interactive box plots showing quartiles, medians, and outliers.</p>
+                <a href="tide_monthly_box.html" class="viz-link" target="_blank">Open Visualization</a>
+            </div>
+            
+            <div class="viz-card">
+                <h3>⏰ Daily Tide Cycles</h3>
+                <p>Understand the semi-diurnal tide patterns and see how tide heights vary throughout a typical 24-hour cycle.</p>
+                <a href="tide_hourly.html" class="viz-link" target="_blank">Open Visualization</a>
+            </div>
+            
+            <div class="viz-card">
+                <h3>📊 Simple Overview</h3>
+                <p>A clean, simple line chart showing the full year of tide data - perfect for getting an overall view of the patterns.</p>
+                <a href="simple_tide_plot.html" class="viz-link" target="_blank">Open Visualization</a>
+            </div>
+        </div>
+        
+        <div class="insights">
+            <h3>💡 Key Insights from the Data</h3>
+            <ul>
+                <li><strong>Tidal Range:</strong> Chek Lap Kok experiences significant tidal variation from 0.00m to 2.89m - a range of 2.89m</li>
+                <li><strong>Semi-diurnal Pattern:</strong> The data shows classic semi-diurnal tides with approximately two high and two low tides per day</li>
+                <li><strong>Annual Coverage:</strong> Complete dataset with 1,301 high-quality measurements across the entire year 2023</li>
+                <li><strong>Airport Operations:</strong> Understanding these patterns is crucial for Hong Kong International Airport operations and coastal management</li>
+                <li><strong>Predictable Cycles:</strong> The data reveals consistent tidal cycles that can be used for planning and prediction</li>
+            </ul>
+        </div>
+        
+        <div class="insights">
+            <h3>🎮 How to Use the Interactive Features</h3>
+            <ul>
+                <li><strong>Time Series:</strong> Use range selector buttons (7d, 30d, 3m, all) or drag the range slider below the chart</li>
+                <li><strong>Zoom & Pan:</strong> Click and drag to zoom into specific time periods, double-click to reset</li>
+                <li><strong>Hover Details:</strong> Hover over any data point for detailed information including exact timestamps and values</li>
+                <li><strong>Download:</strong> Use the camera icon in the toolbar to download plots as PNG images</li>
+                <li><strong>Full Screen:</strong> Click the expand icon in the toolbar for full-screen viewing</li>
+            </ul>
+        </div>
+        
+        <div class="insights">
+            <h3>📊 About the Data</h3>
+            <ul>
+                <li><strong>Source:</strong> Chek Lap Kok tide measurements for the complete year 2023</li>
+                <li><strong>Location:</strong> Hong Kong International Airport (Chek Lap Kok Island)</li>
+                <li><strong>Frequency:</strong> Multiple measurements per day capturing high and low tide cycles</li>
+                <li><strong>Quality:</strong> Professional-grade tidal measurements with high accuracy</li>
+                <li><strong>Applications:</strong> Essential for aviation, marine operations, and coastal planning</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
